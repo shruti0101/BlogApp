@@ -1,18 +1,31 @@
-import "./App.css";
+import {  useContext,useEffect } from "react";
 import Blogs from "./components/Blogs";
-// import Cards from "./components/Cards";
+
 import Header from "./components/Header";
+
+import { AppContext } from "./Context/AppContext";
 import Pagination from "./components/Pagination";
 
+
 function App() {
+
+  const {fetchData}= useContext(AppContext);
+  
+  useEffect(() => {
+    
+    fetchData(); 
+  }, []);
+  
   
   return (
   <div>
      
 <Header></Header>
-{/* <Cards></Cards> */}
+
 <Blogs></Blogs>
+
 <Pagination></Pagination>
+
   </div>
   );
 }

@@ -9,19 +9,22 @@ const Blogs = () => {
 
 
   return (
-    <div>
+    <div className="my-[100px]">
+        <div  className="flex flex-col gap-y-10 my-4">
+
       {loading ? (
         <Spinner />
       ) : Posts.length === 0 ? ( 
         <div>
-          <p className="text-bold text-2xl flex justify-center mt-[75px] ">No posts found</p>
+          <p className="font-bold text-3xl text-center my-[200px]">No posts found</p>
         </div>
       ) : (
         Posts.map((post)=>(
            <Cards key={post.id} post={post}></Cards>
-           
+
         ))
       )}
+        </div>
     </div>
   );
 };

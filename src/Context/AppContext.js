@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState } from "react";
+import { createContext, useState } from "react";
 import { baseUrl } from "../BlogUrl";
 // creation of context
  export const AppContext = createContext();
@@ -22,7 +22,7 @@ import { baseUrl } from "../BlogUrl";
         let data = await response.json();
        SetPosts(data.posts);
        SetPage(data.page);
-       SetTotalPages(data.totalPosts);
+       SetTotalPages(data.totalPages);
      
  
     }
@@ -36,16 +36,12 @@ import { baseUrl } from "../BlogUrl";
     SetLoading(false);
   }
 
-  useEffect(() => {
-    
-    fetchData(); 
-  }, []);
-  
+
 
  
-function HandlePageChange(newpage){
-SetPage(newpage);
-fetchData(newpage);
+function HandlePageChange(Page){
+SetPage(Page);
+fetchData(Page);
 }
 
 
